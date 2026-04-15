@@ -1,19 +1,14 @@
 from pathlib import Path
 
 # Paths to images and masks
-IMG_DIRS = [
-    Path("data/imgs/imgs_part_1"),
-    Path("data/imgs/imgs_part_2"),
-    Path("data/imgs/imgs_part_3"),
-]
-MASK_DIR = Path("data/masks/masks")
+IMG_DIR = Path("data/imgs")
+MASK_DIR = Path("data/masks")
 
 def find_image(img_id):
-    """Search for an image across all image subfolders."""
-    for img_dir in IMG_DIRS:
-        path = img_dir / img_id
-        if path.exists():
-            return path
+    """Search for an image in the imgs folder."""
+    path = IMG_DIR / img_id
+    if path.exists():
+        return path
     return None
 
 def find_mask(img_id):
