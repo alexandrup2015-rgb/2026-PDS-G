@@ -63,7 +63,7 @@ def get_compactness(mask, img=None):
     area = np.sum(binary_mask)
     perimeter = get_perimeter(mask)
     
-    if perimeter == 0:
+    if perimeter == 0 or area == 0:
         return 0
-    
+
     return (perimeter ** 2) / (4 * np.pi * area)

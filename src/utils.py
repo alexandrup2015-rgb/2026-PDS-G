@@ -13,7 +13,8 @@ def find_image(img_id):
 
 def find_mask(img_id):
     """Find the mask for a given image."""
-    mask_name = img_id.replace(".png", "_mask.png")
+    stem = Path(img_id).stem
+    mask_name = f"{stem}_mask.png"
     path = MASK_DIR / mask_name
     if path.exists():
         return path
